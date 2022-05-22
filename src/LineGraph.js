@@ -22,6 +22,7 @@ const options = {
     callbacks: {
       label: function (tooltipItem, data) {
         return numeral(tooltipItem.value).format("+0,0");
+  
       },
     },
   },
@@ -68,7 +69,7 @@ const buildChartData = (data, casesType) => {
   return chartData;
 };
 
-function LineGraph({ casesType="cases" }) {
+function LineGraph({ casesType="cases", ...props }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -87,7 +88,7 @@ function LineGraph({ casesType="cases" }) {
   }, [casesType]);
 
   return (
-    <div>
+    <div className={props.className} >
       {data?.length > 0 && (
         <Line
           options={options}
