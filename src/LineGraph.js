@@ -80,7 +80,6 @@ function LineGraph({ casesType="cases" }) {
         .then((data) => {
           let chartData = buildChartData(data, casesType);
           setData(chartData);
-          console.log(chartData);
         });
     };
 
